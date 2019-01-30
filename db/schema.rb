@@ -28,9 +28,15 @@ ActiveRecord::Schema.define(version: 2019_01_29_074953) do
 
   create_table "products", force: :cascade do |t|
     t.string "name"
-    t.decimal "price"
+    t.decimal "price", precision: 5, scale: 2
+    t.decimal "decimal", precision: 5, scale: 2
     t.integer "product_type_id"
     t.text "descprition"
+    t.decimal "compare_price", precision: 5, scale: 2
+    t.decimal "cost_per_item", precision: 5, scale: 2
+    t.string "barcode"
+    t.integer "quantity"
+    t.boolean "allow_out_of_stock_purchase", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["product_type_id"], name: "index_products_on_product_type_id"
